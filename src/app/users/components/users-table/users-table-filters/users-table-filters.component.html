@@ -1,0 +1,22 @@
+<div class="table-filters">
+    <fw-text-input
+            placeholder="Search Name"
+            leftIcon="search"
+            [(ngModel)]="searchValue"
+            (ngModelChange)="onSearch()"></fw-text-input>
+    <fw-button
+            leftIcon="filter" rightIcon="chevron-down"
+            variant="outline" [cdkMenuTriggerFor]="filterMenu">
+        Filter
+    </fw-button>
+    <ng-template #filterMenu>
+        <fw-menu-container class="users-table-menu" width="130px" shadow="large" offset="1px">
+            <fw-menu cdkMenu>
+                <fw-menu-item *ngFor="let item of menuItems" class="users-table-menu-item"
+                              [class.selected]="item === selectedMenuItem" [title]="item"
+                              (click)="onMenuItemSelect(item)"
+                              cdkMenuItem></fw-menu-item>
+            </fw-menu>
+        </fw-menu-container>
+    </ng-template>
+</div>

@@ -1,0 +1,21 @@
+<fw-grid>
+  <fw-grid-item [cols]="12">
+    <fw-subsection-heading icon="document-file-list-protocol" title="News and Events"></fw-subsection-heading>
+  </fw-grid-item>
+
+  <fw-grid-item [cols]="6" [sm]="4" [md]="3" *ngFor="let item of feedData">
+    <fw-card>
+      <fw-card-header [title]="item.title">
+      </fw-card-header>
+      <fw-card-content>
+        <img [src]="item.thumbnail_url" alt=""/>
+        <p style="-webkit-line-clamp: 3">
+          {{ item.description }}
+        </p>
+      </fw-card-content>
+      <fw-card-footer>
+        <fw-button [fullWidth]="true" variant="outline" (click)="openUrl(item.url)">View</fw-button>
+      </fw-card-footer>
+    </fw-card>
+  </fw-grid-item>
+</fw-grid>

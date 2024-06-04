@@ -1,0 +1,21 @@
+:host {
+  .edit-user-dialog-form {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    padding: 1rem;
+
+    &-error {
+      font-size: 12px;
+      margin-left: 0.25rem;
+    }
+
+    ::ng-deep {
+      .edit-user-dialog-form-select > div {
+        width: 100% !important;
+      }
+    }
+  }
+
+
+}

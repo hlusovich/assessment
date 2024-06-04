@@ -1,0 +1,47 @@
+<fw-dialog class='edit-user-dialog' [width]="dialogWidth.ExtraSmall" [showClose]="true">
+    <fw-dialog-header class="edit-user-dialog-header">
+        <h3>Edit User</h3>
+    </fw-dialog-header>
+    <fw-dialog-content>
+        <form class="edit-user-dialog-form" [formGroup]="editForm">
+            <div>
+                <p>First Name</p>
+                <fw-text-input [formControlName]="editUserDialogEnum.FirstName"
+                               leftIcon="search"
+                               placeholder="First Name"></fw-text-input>
+                <mat-error class="edit-user-dialog-form-error" *ngIf="editForm.controls[editUserDialogEnum.FirstName].invalid && editForm.controls[editUserDialogEnum.FirstName].touched">First Name Required</mat-error>
+            </div>
+
+            <div>
+                <p>Last Name</p>
+                <fw-text-input [formControlName]="editUserDialogEnum.LastName"
+                               leftIcon="search"
+                               placeholder="Last Name"></fw-text-input>
+                <mat-error class="edit-user-dialog-form-error" *ngIf="editForm.controls[editUserDialogEnum.LastName].invalid && editForm.controls[editUserDialogEnum.LastName].touched">Last Name Required</mat-error>
+            </div>
+
+            <div>
+                <p>Email</p>
+                <fw-text-input [formControlName]="editUserDialogEnum.Email"
+                               leftIcon="search"
+                               placeholder="Email"></fw-text-input>
+                <mat-error class="edit-user-dialog-form-error" *ngIf="editForm.controls[editUserDialogEnum.Email].invalid && editForm.controls[editUserDialogEnum.Email].touched">Email Required</mat-error>
+            </div>
+
+            <div>
+                <p>Organization Role</p>
+                <fw-select class='edit-user-dialog-form-select' placeholder="Organization Role"
+                           [formControlName]="newUserDialogEnum.Role"
+                           [options]="roles"></fw-select>
+                <mat-error class="edit-user-dialog-form-error" *ngIf="editForm.controls[editUserDialogEnum.Role].touched">Role Required</mat-error>
+            </div>
+
+
+        </form>
+    </fw-dialog-content>
+    <fw-dialog-actions class='edit-user-dialog-actions'>
+        <div class="flex"></div>
+        <fw-button variant="outline" (click)="onCancel()">Cancel</fw-button>
+        <fw-button [disabled]="editForm.invalid" (click)="onSend()">Send</fw-button>
+    </fw-dialog-actions>
+</fw-dialog>

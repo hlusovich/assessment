@@ -1,0 +1,38 @@
+:host {
+  flex: 1;
+  margin: auto;
+
+  .page {
+    flex: 1;
+    min-height: 100vh;
+  }
+
+  .page-shaded {
+    background-color: var(--page-shaded);
+  }
+
+  .page-light {
+    background-color: var(--page-light);
+  }
+
+  .app-layout-central {
+    width: 100%;
+    max-width: 1280px;
+    padding-top: 60px;
+    margin: 0 auto;
+
+    .header-page {
+      padding: 16px;
+    }
+  }
+
+  .app-layout-core {
+    .menu-page {
+      display: flex;
+
+      section {
+        flex: 1;
+      }
+    }
+  }
+}

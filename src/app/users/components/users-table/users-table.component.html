@@ -1,0 +1,100 @@
+<div *ngIf="{tableData: dataSource | tableFilter : filterSearch : filterStatus } as data" class="table-container">
+    <ng-container *ngIf="!loading; else loadingTemplate">
+        <div class="table">
+            <app-users-table-filters class="table-filters" (search)="onFilterSearch($event)"
+                                     (selectStatus)="onFilterStatusSelect($event)"></app-users-table-filters>
+
+            <table mat-table [dataSource]="data.tableData | pagination: currentPagination" matSort #matSort="matSort" (matSortChange)="sortChange()">
+                <ng-container [matColumnDef]="usersTableColumns.Name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <h4>Name</h4>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="no-wrap">
+                        <fw-avatar
+                                size="medium"
+                                variant="circular"
+                                content="initial"
+                                [initial]="row.name | initials">
+                        </fw-avatar>
+                        <p class="text">{{ row.name }}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container [matColumnDef]="usersTableColumns.Email">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <h4>Email</h4>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="no-wrap flex-cell">
+                        <p class="p2 link">{{ row.email }}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container [matColumnDef]="usersTableColumns.Role">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <h4>Role</h4>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="no-wrap">
+                        <p class="text">{{ row.role | titlecase }}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container [matColumnDef]="usersTableColumns.Status">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <h4>Status</h4>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="no-wrap">
+                        <ng-container
+                                *ngIf="row.status === usersTableStatusesEnum.Active.toLowerCase() || row.status === usersTableStatusesEnum.Deactivated.toLowerCase()">
+                            <fw-chip
+                                    [color]="row.status === usersTableStatusesEnum.Active.toLowerCase() ? 'green' : 'slate'"
+                                    [title]="row.status | titlecase"></fw-chip>
+                        </ng-container>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container [matColumnDef]="usersTableColumns.Action">
+                    <mat-header-cell *matHeaderCellDef>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="no-wrap">
+                        <div *ngIf="row.status !== usersTableStatusesEnum.Deactivated.toLowerCase()" class="table-action" (click)="$event.stopPropagation(); editData.emit(row)">
+                            <mat-icon>edit</mat-icon>
+                        </div>
+                    </mat-cell>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row
+                    *matRowDef="let row; columns: displayedColumns"
+                    class="table-row"
+                    [ngClass]="{
+                selected:selectedRow.has(row.id),
+                disabled: row.status === usersTableStatusesEnum.Deactivated.toLowerCase()
+            }"
+                    (click)="rowSelected(row)">
+                </tr>
+
+            </table>
+        </div>
+        <div class="paginator">
+            <p *ngIf="selectedRowsCount$ | async as selectedRows"
+               class="paginator-selected">{{ selectedRows }} {{ selectedRows > 1 ? 'rows' : 'row' }}
+                selected</p>
+            <fw-paginator-advanced
+                    class="paginator-actions"
+                    alignment="end"
+                    [length]="data.tableData.data.length"
+                    [pageIndex]="currentPagination.pageIndex"
+                    [pageSize]="currentPagination.pageSize"
+                    [selectorTitle]="'Rows per page:'"
+                    (page)="onPageChange($event)"
+            >
+            </fw-paginator-advanced>
+        </div>
+    </ng-container>
+
+    <ng-template #loadingTemplate>
+        <div class="table-loading">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-template>
+</div>

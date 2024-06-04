@@ -1,0 +1,18 @@
+<fw-layout-group [stackable]="true">
+  <div class="navigation">
+    <a href="/">
+      <fw-app-icon
+        style="margin: -4px"
+        icon="flywheel-mark-logo"
+        size="medium"
+        variant="static"
+        color="light"
+        [animated]="true">
+      </fw-app-icon>
+    </a>
+    <fw-breadcrumbs>
+      <fw-crumb title="Flywheel" href="/"></fw-crumb>
+    </fw-breadcrumbs>
+  </div>
+  <app-toolbar (themeToggle)="handleModeToggle()"></app-toolbar>
+</fw-layout-group>

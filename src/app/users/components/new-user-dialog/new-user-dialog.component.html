@@ -1,0 +1,58 @@
+<fw-dialog class='new-user-dialog' [width]="dialogWidth.Large" [showClose]="true">
+    <fw-dialog-header class="new-user-dialog-header">
+        <fw-icon>add-user</fw-icon>
+        <h3>Add New User</h3>
+    </fw-dialog-header>
+    <fw-dialog-content class="new-user-dialog-content">
+        <p class="new-user-dialog-content-title">
+            Invite colleagues individually or save time by using our <a class="new-user-dialog-content-link" href="#">Import
+            Users spreadsheet.</a>
+        </p>
+
+        <form [formGroup]="usersForm">
+            <table class='new-user-dialog-content-table'>
+                <tr class='new-user-dialog-content-table-row'>
+                    <th *ngFor="let title of headerTitles" class='new-user-dialog-content-table-row-cell header'><h5
+                            class="header-title">{{ title }}</h5></th>
+                </tr>
+                <tr>
+                    <td colspan="5" class="new-user-dialog-content-table-separator"></td>
+                </tr>
+                <ng-container *ngFor="let usersForm of userFormControls; let i=index">
+                    <tr [formGroup]="usersForm" class='new-user-dialog-content-table-row body'>
+                        <td class="new-user-dialog-content-table-row-input">
+                            <fw-text-input [formControlName]="newUserDialogEnum.FirstName" leftIcon="search"
+                                           placeholder="First Name"></fw-text-input>
+                        </td>
+                        <td class="new-user-dialog-content-table-row-input">
+                            <fw-text-input [formControlName]="newUserDialogEnum.LastName" leftIcon="search"
+                                           placeholder="Last Name"></fw-text-input>
+                        </td>
+                        <td class="new-user-dialog-content-table-row-input">
+                            <fw-text-input [formControlName]="newUserDialogEnum.Email" leftIcon="search"
+                                           placeholder="Email" type="email"></fw-text-input>
+                        </td>
+                        <td class="new-user-dialog-content-table-row-select">
+                            <fw-select placeholder="Role" width="100%" [formControlName]="newUserDialogEnum.Role"  [options]="roles"></fw-select>
+                        </td>
+                        <td>
+                            <button *ngIf="usersForms.controls.length > 1" mat-icon-button>
+                                <mat-icon (click)="removeUser(i)" class="icon">delete_outlined</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </ng-container>
+            </table>
+        </form>
+    </fw-dialog-content>
+    <fw-dialog-actions class='new-user-dialog-actions'>
+        <fw-button variant="outline" (click)="addUser()">
+            <div class='new-user-dialog-actions-content'>
+                <mat-icon class='new-user-dialog-actions-content-icon'>add</mat-icon>
+                <p>Add Another User</p></div>
+        </fw-button>
+        <div class="flex"></div>
+        <fw-button variant="outline" (click)="onCancel()">Cancel</fw-button>
+        <fw-button [disabled]="usersForm.invalid" (click)="onSend()">Send</fw-button>
+    </fw-dialog-actions>
+</fw-dialog>

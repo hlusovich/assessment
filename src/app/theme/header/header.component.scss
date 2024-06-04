@@ -1,0 +1,27 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 999;
+
+  fw-layout-group {
+    height: 60px;
+
+    .navigation {
+      height: 28px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    fw-layout-toolbar {
+      height: 28px;
+    }
+
+    fw-avatar {
+      cursor: pointer;
+    }
+  }
+}

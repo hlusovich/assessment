@@ -1,0 +1,117 @@
+<app-theme>
+  <div class="main">
+    <fw-grid>
+      <fw-grid-item [cols]="12">
+        <fw-subsection-heading icon="grid-layout" title="Apps"></fw-subsection-heading>
+      </fw-grid-item>
+
+      <fw-grid-item [cols]="12" [sm]="6" [md]="4">
+        <fw-card>
+          <fw-card-header title="Core">
+            <fw-app-icon
+              imageUrl="assets/brand/core.svg" size="large" color="transparent"
+              variant="static"></fw-app-icon>
+          </fw-card-header>
+          <fw-card-content>
+            <p style="-webkit-line-clamp: 3">
+              Flywheel Core is a platform for ingesting, classifying, curating, storing, searching and analyzing
+              medical
+              imaging and associated data.
+            </p>
+          </fw-card-content>
+          <fw-card-footer>
+            <fw-button
+              [fullWidth]="true" variant="outline"
+              (click)="openUrl('https://flywheel.io/flywheel-is-research-data-management/')">
+              Learn More
+            </fw-button>
+            <fw-button [fullWidth]="true" variant="solid" (click)="openTenantDialog()">Launch</fw-button>
+          </fw-card-footer>
+        </fw-card>
+      </fw-grid-item>
+
+      <fw-grid-item [cols]="12" [sm]="6" [md]="4">
+        <fw-card>
+          <fw-card-header title="Exchange">
+            <fw-app-icon
+              imageUrl="assets/brand/exchange.svg" size="large" color="transparent"
+              variant="static"></fw-app-icon>
+          </fw-card-header>
+          <fw-card-content>
+            <p style="-webkit-line-clamp: 3">
+              Flywheel Exchange is a catalog of open-access and commercial datasets to browse and import –
+              pre-curated and ready for analysis.
+            </p>
+          </fw-card-content>
+          <fw-card-footer>
+            <fw-button
+              [fullWidth]="true" variant="outline" (click)="openUrl('https://flywheel.io/flywheel-is-data-exchange/')">
+              Learn More
+            </fw-button>
+            <fw-button [fullWidth]="true" variant="solid" (click)="openTenantDialog()">Launch</fw-button>
+          </fw-card-footer>
+        </fw-card>
+      </fw-grid-item>
+
+      <fw-grid-item [cols]="12" [sm]="6" [md]="4">
+        <fw-card>
+          <fw-card-header title="Discovery">
+            <fw-app-icon
+              imageUrl="assets/brand/discovery.svg" size="large" color="transparent"
+              variant="static"></fw-app-icon>
+            <fw-icon-button icon="lock" [disabled]="true"></fw-icon-button>
+          </fw-card-header>
+          <fw-card-content>
+            <p style="-webkit-line-clamp: 3">
+              Flywheel Discovery indexes every image in the archive, creates dashboards for cohort identification,
+              and enables data provisioning for research.
+            </p>
+          </fw-card-content>
+          <fw-card-footer>
+            <fw-button
+              [fullWidth]="true" variant="outline" (click)="openUrl('https://flywheel.io/flywheel-is-data-discovery/')">
+              Learn More
+            </fw-button>
+          </fw-card-footer>
+        </fw-card>
+      </fw-grid-item>
+    </fw-grid>
+
+    <app-news></app-news>
+
+    <fw-grid>
+
+      <fw-grid-item [cols]="12" [sm]="6">
+        <fw-subsection-heading icon="question-circle" title="Support"></fw-subsection-heading>
+        <div class="link-cards">
+          <a href="https://forum.flywheel.io/" target="_blank">
+            <fw-card>
+              <fw-card-header leftIcon="message-chat-question-support" title="Flywheel Forum"></fw-card-header>
+            </fw-card>
+          </a>
+          <a href="https://docs.flywheel.io/" target="_blank">
+            <fw-card>
+              <fw-card-header leftIcon="files" title="Flywheel Docs"></fw-card-header>
+            </fw-card>
+          </a>
+        </div>
+      </fw-grid-item>
+      <fw-grid-item [cols]="12" [sm]="6">
+        <fw-subsection-heading icon="setting-gear" title="Team Settings"></fw-subsection-heading>
+        <div class="link-cards">
+          <a href="/users">
+            <fw-card>
+              <fw-card-header leftIcon="user-group" title="Users"></fw-card-header>
+            </fw-card>
+          </a>
+          <a href="https://flywheel.io/gear-exchange/" target="_blank">
+            <fw-card>
+              <fw-card-header leftIcon="settings-gear" title="Gears"></fw-card-header>
+            </fw-card>
+          </a>
+        </div>
+      </fw-grid-item>
+
+    </fw-grid>
+  </div>
+</app-theme>

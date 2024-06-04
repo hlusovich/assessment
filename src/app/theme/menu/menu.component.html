@@ -1,0 +1,45 @@
+<div class="menu-wrapper vision-dark-theme">
+  <fw-menu-container border="none" shadow="none" [width]="collapsed?'50px':'208px'">
+    <fw-menu
+      [collapsed]="collapsed"
+      collapsedWidth="42px"
+      openWidth="200px">
+      <fw-menu-item
+        style="height: 53px;"
+        title="Core" [icon]="collapsed?'window-resize-left':'flywheel-mark-logo'" (click)="collapsed = !collapsed">
+        <fw-icon style="font-size: 18px">window-resize-right</fw-icon>
+      </fw-menu-item>
+      <fw-menu-separator></fw-menu-separator>
+      <fw-menu-item title="Search" icon="search" style="height: 34px"></fw-menu-item>
+      <fw-menu-separator></fw-menu-separator>
+      <fw-menu-header>Data</fw-menu-header>
+      <fw-menu-item title="Projects" icon="folder-open"></fw-menu-item>
+      <fw-menu-item title="Sessions" icon="files-library-content"></fw-menu-item>
+      <fw-menu-item title="Collections" icon="files-library"></fw-menu-item>
+      <fw-menu-item title="Tasks" icon="checklist"></fw-menu-item>
+      <fw-menu-item title="DICOM Uploader" icon="upload"></fw-menu-item>
+      <fw-menu-header>Exchange</fw-menu-header>
+      <fw-menu-item title="Explore Data" icon="server-databases-connect"></fw-menu-item>
+      <fw-menu-item title="Publishing" icon="server-databases-sync"></fw-menu-item>
+      <fw-menu-item title="Manage Access" icon="arrange-filter-sort"></fw-menu-item>
+      <fw-menu-header>Compute</fw-menu-header>
+      <fw-menu-item title="Jobs Log" icon="settings-select"></fw-menu-item>
+      <fw-menu-item title="Installed Gears" icon="settings-gear-square"></fw-menu-item>
+      <fw-menu-header>Reporting</fw-menu-header>
+      <fw-menu-item title="Project Report" icon="chart-trend-square"></fw-menu-item>
+      <fw-menu-item title="Usage Report" icon="pie-chart"></fw-menu-item>
+      <fw-menu-header>Admin</fw-menu-header>
+      <fw-menu-item title="Groups" icon="user-group"></fw-menu-item>
+      <fw-menu-item title="Roles" icon="user-key"></fw-menu-item>
+      <fw-menu-item title="Applications" icon="files"></fw-menu-item>
+      <fw-menu-item title="Interfaces" icon="data-tree"></fw-menu-item>
+      <fw-menu-item title="Data Views" icon="layout-grid"></fw-menu-item>
+      <fw-menu-item title="Access Log" icon="show-visible"></fw-menu-item>
+      <fw-menu-item
+        title="Gear Rule Templates"
+        icon="substract-group">
+      </fw-menu-item>
+      <fw-menu-item title="Settings" icon="setting-gear"></fw-menu-item>
+    </fw-menu>
+  </fw-menu-container>
+</div>

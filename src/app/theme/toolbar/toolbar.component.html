@@ -1,0 +1,88 @@
+<fw-layout-toolbar>
+  <fw-icon-button
+    color="primary"
+    icon="bookmark"
+    size="small"
+    [cdkMenuTriggerFor]="bookmarksMenu">
+  </fw-icon-button>
+  <ng-template #bookmarksMenu>
+    <fw-menu-container width="200px" shadow="large" offset="15px">
+      <fw-menu>
+        <fw-menu-header>Bookmarks</fw-menu-header>
+        <fw-menu-item
+          title="Dashboard"
+          icon="speed-dashboard"
+          href="/"
+          routerLinkActive="focused">
+        </fw-menu-item>
+        <fw-menu-item
+          title="Users"
+          icon="user-group"
+          href="/users">
+        </fw-menu-item>
+      </fw-menu>
+    </fw-menu-container>
+  </ng-template>
+  <fw-icon-button
+    color="primary"
+    icon="question-circle"
+    size="small"
+    [cdkMenuTriggerFor]="helpMenu">
+  </fw-icon-button>
+  <ng-template #helpMenu>
+    <fw-menu-container width="210px" shadow="large" offset="15px">
+      <fw-menu>
+        <fw-menu-item
+          title="Flywheel Documentation" href="https://docs.flywheel.io/"
+          target="_blank">
+        </fw-menu-item>
+        <fw-menu-item
+          title="Flywheel Forum" href="https://forum.flywheel.io/"
+          target="_blank">
+        </fw-menu-item>
+        <fw-menu-item
+          title="Support"
+          href="https://flywheelio.zendesk.com/hc/en-us/requests/new"
+          target="_blank">
+        </fw-menu-item>
+      </fw-menu>
+    </fw-menu-container>
+  </ng-template>
+  <fw-icon-button
+    color="primary"
+    icon="setting-gear"
+    size="small"
+    [cdkMenuTriggerFor]="settingsMenu">
+  </fw-icon-button>
+  <ng-template #settingsMenu>
+    <fw-menu-container width="175px" shadow="large" offset="15px">
+      <fw-menu>
+        <fw-menu-item title="Users" icon="user-group" href="/users"></fw-menu-item>
+        <fw-menu-item title="Theme" icon="contrast-photo-edit" (click)="handleModeToggle()"></fw-menu-item>
+      </fw-menu>
+    </fw-menu-container>
+  </ng-template>
+  <fw-avatar
+    content="initial"
+    initial="JD"
+    size="medium"
+    [cdkMenuTriggerFor]="profileMenu">
+  </fw-avatar>
+  <ng-template #profileMenu>
+    <fw-menu-container shadow="large" width="220px" offset="13px">
+      <fw-menu>
+        <fw-menu-item title="Janey Doe" description="janeydoe@flywheel.io" (click)="addMessages()">
+          <fw-avatar
+            size="medium"
+            variant="circular"
+            content="initial"
+            initial="JD">
+          </fw-avatar>
+        </fw-menu-item>
+        <fw-menu-separator></fw-menu-separator>
+        <fw-menu-item title="Profile Settings" size="compact"></fw-menu-item>
+        <fw-menu-item title="Log out" size="compact"></fw-menu-item>
+      </fw-menu>
+    </fw-menu-container>
+  </ng-template>
+</fw-layout-toolbar>

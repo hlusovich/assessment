@@ -1,0 +1,23 @@
+:host {
+  .table-filters {
+    padding: 16px;
+    background-color: var(--card-header);
+    display: flex;
+    gap: 16px;
+    border-top: 1px solid var(--separations-base);
+    border-left: 1px solid var(--separations-base);
+    border-right: 1px solid var(--separations-base);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    fw-text-input {
+      width: 100%;
+    }
+  }
+}
+
+.users-table-menu {
+  &-item {
+    width: 122px;
+  }
+}

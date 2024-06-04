@@ -1,0 +1,17 @@
+<fw-dialog [width]="DialogWidth.ExtraSmall" [showClose]="true">
+  <fw-dialog-header>
+    <h3>Select a Flywheel Core Tenant</h3>
+  </fw-dialog-header>
+  <fw-dialog-content>
+    <p style="padding: 0 16px;">
+      Please select the tenant you would like to work within Core.
+      Once in Core, you can change your tenant at any time.
+    </p>
+    <fw-select width="390px" [(ngModel)]="selectedTenant" [options]="tenants" placeholder="Select Tenant">
+    </fw-select>
+  </fw-dialog-content>
+  <fw-dialog-actions>
+    <fw-button variant="outline" (click)="cancel()">Cancel</fw-button>
+    <fw-button (click)="select()">Select</fw-button>
+  </fw-dialog-actions>
+</fw-dialog>

@@ -1,0 +1,22 @@
+<ng-template #content>
+    <ng-content></ng-content>
+</ng-template>
+<div class="page" [ngClass]="'page-'+page">
+    <div class="app-layout-central" *ngIf="layout==='central'">
+        <app-header (themeToggle)="handleThemeToggle()"></app-header>
+        <div class="header-page">
+            <ng-container *ngTemplateOutlet='content'></ng-container>
+        </div>
+        <fw-snackbar-container></fw-snackbar-container>
+    </div>
+
+    <div class="app-layout-core" *ngIf="layout==='core'">
+        <div class="menu-page">
+            <app-menu></app-menu>
+            <section>
+                <ng-container *ngTemplateOutlet='content'></ng-container>
+            </section>
+        </div>
+        <fw-snackbar-container></fw-snackbar-container>
+    </div>
+</div>

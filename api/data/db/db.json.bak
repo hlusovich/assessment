@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": "18e6d8357fd",
+      "name": "Jean-Luc Picard",
+      "email": "jeanlucpicard@startfleet.space",
+      "role": "admin",
+      "status": "active"
+    },
+    {
+      "id": "18e76f36d7b",
+      "name": "William Riker",
+      "email": "williamriker@startfleet.space",
+      "role": "admin",
+      "status": "active"
+    },
+    {
+      "id": "18e76fc4e4f",
+      "name": "Worf",
+      "email": "worf@startfleet.space",
+      "role": "developer",
+      "status": "active"
+    },
+    {
+      "id": "18e76fda6d8",
+      "name": "Geordi La Forge",
+      "email": "geordilaforge@startfleet.space",
+      "role": "developer",
+      "status": "active"
+    },
+    {
+      "id": "18e776a644f",
+      "name": "Beverly Crusher",
+      "email": "beverlycrusher@startfleet.space",
+      "role": "developer",
+      "status": "deactivated"
+    },
+    {
+      "id": "18e776af9f8",
+      "name": "Deanna Troi",
+      "email": "deanatroi@startfleet.space",
+      "role": "user",
+      "status": "deactivated"
+    },
+    {
+      "id": "18e776c84ef",
+      "name": "Wesley Crusher",
+      "email": "wesleycrusher@startfleet.space",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "18e776ea449",
+      "name": "Tasha Yar",
+      "email": "tashayar@startfleet.space",
+      "role": "developer",
+      "status": "deactivated"
+    }
+  ]
+}
